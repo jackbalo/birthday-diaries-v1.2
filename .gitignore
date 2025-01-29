@@ -169,3 +169,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+#mine
+client.txt
+trial.py
+cs50.code-workspace
+e-verify.py
+login-google.py
