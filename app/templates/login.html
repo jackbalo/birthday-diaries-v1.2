@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="d-flex justify-content-center align-items-left vh-90">
+    <form action="/login" method="post" class="form-control p-4" style="max-width: 500px;">
+        <h2 class="h2 rounded-pill mt-0 pt-0 text-bg-dark">Log in Your 🎂📔</h2>
+        <div class="mb-3 row text-center">
+            <label for="username" class="col-sm-4 col-form-label">Username</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder=" Enter Username" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="password" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
+                <input class="form-control mx-auto w-auto" name="password" placeholder="Enter password" type="password" required>
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <button class="btn btn-success" type="submit">Log in</button>
+        </div>
+        <div class="mb-3 row text-center">
+            <button class="btn btn-primary"><a class="nav-link active text-bg-primary" aria-current="page" href="{{url_for('main.googleLogin')}}"><img src="static/logo.jpg" alt="Google logo" style="width:20px; margin-right:10px;">Sign in with Google</a>
+        </button>
+    </form>
+</div>
+{% endblock %}

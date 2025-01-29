@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class="d-flex justify-content-center align-items-left vh-90">
+    <form action="/register" method="post" class="form-control p-4" style="max-width: 500px;">
+        <h2 class="h2 rounded-pill mt-0 pt-0 text-bg-dark">Create Your Diary🎂📔</h2>
+        <div class="mb-3 row text-center">
+            <label for="name" class="col-sm-4 col-form-label">Name</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" placeholder="Name" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="username" class="col-sm-4 col-form-label">Username</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="dob" class="col-sm-4 col-form-label">Birth Date</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="dob" placeholder="Date of Birth" type="date">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="email" class="col-sm-4 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="email" placeholder="Email" type="email">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="phone" class="col-sm-4 col-form-label">Phone</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="phone" placeholder="Phone number" type="text">
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="password" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
+                <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password" required>
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <label for="confirm_password" class="col-sm-4 col-form-label">Confirm password</label>
+            <div class="col-sm-8">
+                <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirm password" type="password" required>
+            </div>
+        </div>
+        <div class="mb-3 row text-center">
+            <button class="btn btn-success" type="submit">Register</button>
+        </div>
+        <div class="mb-3 row text-center">
+            <button class="btn btn-primary"><a class="nav-link active text-bg-primary" aria-current="page" href="{{url_for('main.googleLogin')}}"><img src="static/logo.jpg" alt="Google logo" style="width:20px; margin-right:10px;">Sign in with Google</a></button>
+        </div>
+    </form>
+</div>
+
+<script>
+        flatpickr("input[name='dob']", {
+            dateFormat: "Y-m-d",  
+            maxDate: "today", 
+        });
+</script>
+{% endblock %}

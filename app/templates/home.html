@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        {% if birthdays %}
+            <h1 class="stock"><strong>🎉🎈BirthD🎂ys 🎁toDay🎈🎉</strong></h1>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Birth Date</th>
+                    <th>Age</th>
+                    <th>Actions</th>
+                </tr>
+                {% for friend in birthdays %}
+                    <tr>
+                        <td>{{ friend.name }}</td>
+                        <td>{{ friend.email }}</td>
+                        <td>{{ friend.phone }}</td>
+                        <td>{{ friend.birthdates }}</td>
+                        <td>{{ friend.age }}</td>
+                        <td>
+                            <button class="btn btn-secondary" type="submit" onclick="return confirm('Change {{friend.name}}\'s birthday?')"><a href="/edit_birthday/{{ friend.id }}">Change Birthday</a></button>
+                            <form action="/delete_birthday/{{ friend.id }}" method="post" class="btn btn-danger">
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('Remove {{friend.name}}\'s birthday?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {%endfor%}
+                <tr>
+                    <td colspan="7" class="text-center">
+                        <button class="btn btn-success" type="button"><a href="/add_birthday">Add Birthday</a></button>
+                    </td>
+                </tr>
+            </table>
+        {% else %}
+            <h1 class="stock"><strong>No Birthdays For Today</strong></h1>
+            <a href="/birthdays">View Friends</a> 
+        {% endif %}
+    </div>
+{% endblock %}

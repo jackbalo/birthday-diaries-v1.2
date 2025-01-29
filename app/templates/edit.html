@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit
+{% endblock %}
+
+{% block main %}
+<div class="d-flex justify-content-center align-items-left vh-90">
+    <form action="/add_birthday" method="post" class="form-control p-4"  style="max-width: 500px;">
+        <h2 class="h2 rounded-pill mt-0 pt-0 text-bg-dark">Edit Birthday</h2>
+        <div class="mb-3 row" >
+            <label for="name" class="col-sm-4 col-form-label">Name</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="name" placeholder="Name" type="text" required> 
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="dob" class="col-sm-4 col-form-label">Birth Date</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="birthdate" placeholder="Date of Birth" type="date" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="phone" class="col-sm-4 col-form-label">Phone</label>
+            <div class="col-sm-8">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="phone" placeholder="Phone Number" type="text" required>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <button class="btn btn-primary" type="submit">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    flatpickr("input[name='birthdate']", {
+        dateFormat: "Y-m-d",  
+        maxDate: "today", 
+    });
+</script>
+    
+{% endblock %}

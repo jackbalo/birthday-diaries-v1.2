@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    OTP Verification
+{% endblock %}
+
+{% block main %}
+<div class="row justify-content-center">
+    <h2 class="h2 text-center text-primary mb-4"><span class="badge text-bg-warning">Verify your Account to continue</span></h2>
+    <p class="lead text-center mb-4">A<strong> One Time Password </strong>has been sent to {{user.email}}.</p>
+    <p class="lead text-center mb-4">Enter it below to verify your account!</p>
+    <div class="d-flex justify-content-center align-items-left vh-90">
+        <form action="{{url_for('main.otp_verification')}}" method="post" class="form-control p-4" style="max-width: 500px;">
+            <div class="mb-3 row text-center">
+                <label for="otp" class="col-sm-4 col-form-label">OTP</label>
+                <div class="col-sm-8">
+                    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="otp" placeholder=" Enter OTP" type="text">
+            </div>
+            <div class="mb-3 row text-center">
+                <button class="btn btn-success" type="submit">Verify OTP</button>
+            </div>
+        </form>
+        <div class="mb-3 row text-center">
+            <form action="{{url_for('main.otp_verification')}}" method="post" class="form-control p-4" style="max-width: 500px;">
+                <input type="hidden" name="resend_otp" value="1">
+                <button class="btn btn-warning mt-3" type="submit" id="resend-btn">Resend OTP</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript countdown for Resend OTP button
+    let resendBtn = document.getElementById("resend-btn");
+    let countdown = {{ countdown | safe }}; // Countdown in seconds
+    if (countdown > 0) {
+        resendBtn.disabled = true; 
+        function updateCountdown() {
+            if (countdown > 0) {
+            resendBtn.innerText = `Resend OTP in ${countdown--} seconds`;
+            } else {
+            resendBtn.innerText = "Resend OTP";
+            resendBtn.disabled = false;
+            clearInterval(timer);
+        }
+    }
+    let timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
+};
+</script>
+
+{% endblock %}

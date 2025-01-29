@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #F2AD59;
+}
+
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+th {
+    color: white;
+    text-transform: uppercase;
+}
+th:nth-child(2) {
+    background-color:#537fbe; 
+}
+th:nth-child(1) {
+    background-color: #ea433b;
+}
+th:nth-child(3) {
+    background-color: #f5b82e;
+}
+th:nth-child(4) {
+    background-color:#2e944b;
+}
+th:nth-child(5) {
+    background-color:#000;
+}
+th:nth-child(6) {
+    background-color:#537fbe; 
+}
+th:nth-child(7) {
+    background-color: #ea433b;
+}
+th:nth-child(8) {
+    background-color: #f5b82e;
+}
+th:nth-child(9) {
+    background-color:#2e944b;
+}
+th:nth-child(10) {
+    background-color:#000;
+}
+tr:hover {
+    background-color: #f1f1f1;
+}
+td {
+    color: #333;
+    background-color: #ddd;
+}
+
+.stock {
+    color:#010101;
+    font-size: 80x;
+    margin-bottom: 5px;
+}
+
+.select{
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #f5b82e;
+}
+
+.select:focus{
+    box-shadow: 0 0 0 0.2rem #2e944b;
+}
+a {
+    text-decoration: none;
+    color: #f1f1f1;
+}
+a:visited {
+    color: inherit; /* Inherit color from the parent element */
+    text-decoration: none;
+}
